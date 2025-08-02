@@ -7,13 +7,11 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
-# Copy csproj and restore
 COPY ["MyMvcApp.csproj", "./"]
 RUN dotnet restore "./MyMvcApp.csproj"
 
-# Copy everything else and publish
 COPY . .
-RUN dotnet publish "MyMvcApp.csproj" -c Release -o /app/publish
+RUN dotnet publish "MyMvcApp.csproj" -c Release -o /app/publish --no-restore
 
 # 3) Final image
 FROM base AS final
