@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="hero bg-light text-dark py-5 position-relative overflow-hidden">
+    <div class="container text-center position-relative" style="z-index: 2;">
+        <h1 class="display-4 fw-bold mb-3">Welcome to MyMvcApp</h1>
+        <p class="lead mb-4">
+            We help you manage products and users effortlessly with a clean, intuitive interface.
+        </p>
+        <a asp-controller="Products" asp-action="Index" class="btn btn-primary btn-lg me-2">
+            Browse Products
+        </a>
+        <a asp-controller="Users" asp-action="Index" class="btn btn-outline-secondary btn-lg">
+            View Users
+        </a>
+    </div>
+
+    <!-- Decorative overlay -->
+    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"
+         style="background: url('/images/hero-bg.jpg') center/cover no-repeat; opacity: .3; z-index: 1;">
+    </div>
+</section>
+
+<style>
+    .hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+    }
+    .hero-overlay {
+        /* Darken the background image slightly */
+        background-color: rgba(0, 0, 0, 0.2);
+        background-blend-mode: darken;
+    }
+</style>

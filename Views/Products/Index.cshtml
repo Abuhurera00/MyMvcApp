@@ -1,0 +1,33 @@
+@model IEnumerable<MyMvcApp.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.First().Name)</th>
+            <th>@Html.DisplayNameFor(m => m.First().Price)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                <a class="btn btn-secondary" asp-action="Edit"    asp-route-id="@item.Id">Edit</a> 
+                <a class="btn btn-danger" asp-action="Delete"  asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
